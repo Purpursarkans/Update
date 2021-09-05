@@ -41,7 +41,10 @@ void update(int argc, char *argv[], std::string NameFileVersion, std::string sVe
     int versionI = std::stoi(versionS);
 
     rFile.close();
-
+    
+    std::cout << "Last version: " << versionI << std::endl;
+    std::cout << "Total version: " << VERSION << std::endl;
+    
     if (versionI > VERSION)
     {
         std::cout << "Need update" << std::endl;
