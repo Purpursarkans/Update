@@ -1,0 +1,57 @@
+#ifndef UPDATE_HPP
+#define UPDATE_HPP
+
+#include <bits/stdc++.h>
+
+void update(int argc, char *argv[], std::string sVersionUrl, int sVersionI, std::string exeName)
+{
+    static std::string exeNameCopy = exeName + "2";
+
+    for (int i = 1; i < argc; i++)
+    {
+        std::string temp = argv[i];
+        if (temp == "-u")
+        {
+            std::string copy_ = "copy " + exeNameCopy + ".exe " + exeName + ".exe /Y";
+            system(copy_.c_str());
+
+            std::string start = "start cmd /C \"" + exeName + ".exe -d\"";
+            system(start.c_str());
+            exit(0);
+        }
+        else if (temp == "-d")
+        {
+            std::string remove_ = exeNameCopy + ".exe";
+            while (remove(remove_.c_str())) {}
+
+            std::string start = "start " + exeName + ".exe";
+            system(start.c_str());
+            exit(0);
+        }
+    }
+
+    std::string downloadVersion = "curl -o version -L " + sVersionUrl;
+    system(downloadVersion.c_str());
+
+    std::ifstream rFile("version");
+    std::string versionS;
+    std::string downloadUrl;
+    std::getline(rFile, versionS);
+    std::getline(rFile, downloadUrl);
+    int versionI = std::stoi(versionS);
+
+    rFile.close();
+    remove("version");
+
+    if (versionI > sVersionI)
+    {
+        std::cout << "Need update" << std::endl;
+        std::cout << "Start update" << std::endl;
+
+        std::string curl = "curl -o " + exeNameCopy + ".exe " + "-L " + downloadUrl + " && start cmd /C \"" + exeNameCopy + ".exe -u\"";
+        system(curl.c_str());
+        exit(0);
+    }
+}
+
+#endif
