@@ -1,5 +1,10 @@
 # Update
 
+--- 
+https://github.com/Purpursarkans/Update  
+https://github.com/Purpursarkans/Update/blob/main/Update.hpp  
+---
+
 простой обновлятор для вашей программы  
 просто включите заголовочный файл Update.hpp и передайте необходимые параметры  
 
