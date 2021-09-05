@@ -39,7 +39,7 @@ void update(int argc, char *argv[], std::string NameFileVersion, std::string sVe
     int versionI = std::stoi(versionS);
 
     rFile.close();
-    //remove("version");
+    remove("version");
 
     if (versionI > sVersionI)
     {
@@ -49,6 +49,18 @@ void update(int argc, char *argv[], std::string NameFileVersion, std::string sVe
         std::string curl = "curl -o " + exeNameCopy + ".exe " + "-L " + downloadFileUrl + " && start cmd /C \"" + exeNameCopy + ".exe -u\"";
         system(curl.c_str());
         exit(0);
+    }
+    else if (versionI == sVersionI)
+    {
+        std::cout << "All update" << std::endl;
+    }
+    else if (versionI < sVersionI)
+    {
+        std::cout << "You have a newer version" << std::endl;
+    }
+    else
+    {
+        std::cout << "I dont know what happens" << std::endl;
     }
 }
 
