@@ -3,7 +3,7 @@
 
 #include <bits/stdc++.h>
 
-void update(int argc, char *argv[], std::string sVersionUrl, int sVersionI, std::string exeName)
+void update(int argc, char *argv[], std::string NameFileVersion, std::string sVersionUrl, std::string downloadFileUrl, int sVersionI, std::string exeName)
 {
     static std::string exeNameCopy = exeName + "2";
 
@@ -33,11 +33,9 @@ void update(int argc, char *argv[], std::string sVersionUrl, int sVersionI, std:
     std::string downloadVersion = "curl -o version -L " + sVersionUrl;
     system(downloadVersion.c_str());
 
-    std::ifstream rFile("version");
+    std::ifstream rFile(NameFileVersion);
     std::string versionS;
-    std::string downloadUrl;
     std::getline(rFile, versionS);
-    std::getline(rFile, downloadUrl);
     int versionI = std::stoi(versionS);
 
     rFile.close();
@@ -48,7 +46,7 @@ void update(int argc, char *argv[], std::string sVersionUrl, int sVersionI, std:
         std::cout << "Need update" << std::endl;
         std::cout << "Start update" << std::endl;
 
-        std::string curl = "curl -o " + exeNameCopy + ".exe " + "-L " + downloadUrl + " && start cmd /C \"" + exeNameCopy + ".exe -u\"";
+        std::string curl = "curl -o " + exeNameCopy + ".exe " + "-L " + downloadFileUrl + " && start cmd /C \"" + exeNameCopy + ".exe -u\"";
         system(curl.c_str());
         exit(0);
     }
