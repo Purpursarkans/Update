@@ -3,7 +3,7 @@
 
 #include <bits/stdc++.h>
 
-void update(int argc, char *argv[], std::string NameFileVersion, std::string sVersionUrl, std::string downloadFileUrl, int VERSION, std::string exeName)
+void update(int argc, char *argv[], std::string NameFileVersion, std::string sVersionUrl, int VERSION, std::string exeName)
 {
     static std::string exeNameCopy = exeName + "2";
 
@@ -35,7 +35,9 @@ void update(int argc, char *argv[], std::string NameFileVersion, std::string sVe
 
     std::ifstream rFile(NameFileVersion);
     std::string versionS;
+    std::string downloadFileUrl;
     std::getline(rFile, versionS);
+    std::getline(rFile, downloadFileUrl);
     int versionI = std::stoi(versionS);
 
     rFile.close();
