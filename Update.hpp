@@ -41,7 +41,7 @@ void update(int argc, char *argv[], std::string sVersionUrl, int sVersionI, std:
     int versionI = std::stoi(versionS);
 
     rFile.close();
-    remove("version");
+    //remove("version");
 
     if (versionI > sVersionI)
     {
