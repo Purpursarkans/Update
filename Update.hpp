@@ -3,7 +3,7 @@
 
 #include <bits/stdc++.h>
 
-void update(int argc, char *argv[], std::string NameFileVersion, std::string sVersionUrl, std::string downloadFileUrl, int sVersionI, std::string exeName)
+void update(int argc, char *argv[], std::string NameFileVersion, std::string sVersionUrl, std::string downloadFileUrl, int VERSION, std::string exeName)
 {
     static std::string exeNameCopy = exeName + "2";
 
@@ -41,7 +41,7 @@ void update(int argc, char *argv[], std::string NameFileVersion, std::string sVe
     rFile.close();
     remove("version");
 
-    if (versionI > sVersionI)
+    if (versionI > VERSION)
     {
         std::cout << "Need update" << std::endl;
         std::cout << "Start update" << std::endl;
@@ -50,11 +50,11 @@ void update(int argc, char *argv[], std::string NameFileVersion, std::string sVe
         system(curl.c_str());
         exit(0);
     }
-    else if (versionI == sVersionI)
+    else if (versionI == VERSION)
     {
         std::cout << "All update" << std::endl;
     }
-    else if (versionI < sVersionI)
+    else if (versionI < VERSION)
     {
         std::cout << "You have a newer version" << std::endl;
     }
