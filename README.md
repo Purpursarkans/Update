@@ -15,10 +15,6 @@ https://github.com/Purpursarkans/Update/blob/main/Update.hpp
 
 
 
-### *NameFileVersion*
-Название файла в котором будет храниться версия, например  
-**version**
-
 ### *UrlVersion*
 Ссылка на файл **version**, где будет храниться версия, например  
 **file://version**
