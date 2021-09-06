@@ -10,6 +10,7 @@
 #define UPDATE_HPP
 
 #include <bits/stdc++.h>
+#include <Cross/Cross.hpp>
 
 void update(int argc, char *argv[], std::string NameFileVersion, std::string sVersionUrl, int VERSION, std::string exeName)
 {
@@ -65,14 +66,20 @@ void update(int argc, char *argv[], std::string NameFileVersion, std::string sVe
     else if (versionI == VERSION)
     {
         std::cout << "All update" << std::endl;
+        pause();
+        clear();
     }
     else if (versionI < VERSION)
     {
         std::cout << "You have a newer version" << std::endl;
+        pause();
+        clear();
     }
     else
     {
         std::cout << "I dont know what happens" << std::endl;
+        pause();
+        clear();
     }
 }
 
