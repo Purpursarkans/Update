@@ -1,7 +1,7 @@
 ///original file
 ///				 https://github.com/Purpursarkans/Update
 ///			 	 https://github.com/Purpursarkans/Update/blob/main/Update.hpp
-                
+
 ///you can see this file in my other projects, the versions of the files will be different and, perhaps, the code in them will be different, so if you want to see get the latest version of the file, open the original using the links above
 
 ///вы можете увидеть этот файл в других моих проектах, версии файлов могут быть другими и, возможно, код в них будет другим, поэтому, если вы хотите увидеть, последнюю версию файла, откройте оригинал по ссылкам выше
@@ -10,7 +10,7 @@
 #define UPDATE_HPP
 
 #include <bits/stdc++.h>
-#include <Cross/Cross.hpp>
+#include "../Cross/Cross.hpp"
 
 void update(int argc, char *argv[], std::string NameFileVersion, std::string sVersionUrl, int VERSION, std::string exeName)
 {
@@ -31,7 +31,9 @@ void update(int argc, char *argv[], std::string NameFileVersion, std::string sVe
         else if (temp == "-d")
         {
             std::string remove_ = exeNameCopy + ".exe";
-            while (remove(remove_.c_str())) {}
+            while (remove(remove_.c_str()))
+            {
+            }
 
             std::string start = "start " + exeName + ".exe";
             system(start.c_str());
@@ -50,10 +52,10 @@ void update(int argc, char *argv[], std::string NameFileVersion, std::string sVe
     int versionI = std::stoi(versionS);
 
     rFile.close();
-    
+
     std::cout << "Last version: " << versionI << std::endl;
     std::cout << "Total version: " << VERSION << std::endl;
-    
+
     if (versionI > VERSION)
     {
         std::cout << "Need update" << std::endl;
