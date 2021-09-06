@@ -10,6 +10,7 @@ int main(int argc, char * argv[])
 {
     update(argc, argv, NameFileVersion, UrlVersion, VERSION, NameProgram);
 
+    std::cout << "hello" << std::endl;
     system("pause");
 
     return 0;
